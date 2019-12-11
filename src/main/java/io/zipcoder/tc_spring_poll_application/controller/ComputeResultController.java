@@ -32,6 +32,7 @@ public class ComputeResultController {
     @RequestMapping(value = "/computeresult", method = RequestMethod.GET)
     public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
         VoteResult voteResult = new VoteResult();
+
         Iterable<Vote> allVotes = voteRepository.findVotesByPoll(pollId);
         Poll poll = pollRepository.findOne(pollId);
             voteResult.setResults(new ArrayList<OptionCount>());
